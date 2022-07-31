@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { data } from "./data";
 
-function App() {
+const Person = (src, fName, lName, age) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <img src={src} alt={`${fName}${lName}`} />
+      <h3>
+        {fName} {lName}
+      </h3>
+      <h5>{age} years</h5>
+    </>
   );
-}
-
+};
+const App = () => {
+  const [people, setPeople] = React.useState(data);
+  return (
+    <main>
+      <h1>5 birthdays today</h1>
+      {people.map((person) =>
+        Person(person.img, person.fName, person.lName, person.age)
+      )}
+      <button onClick={() => setPeople([])}>Clear All</button>
+    </main>
+  );
+};
 export default App;
