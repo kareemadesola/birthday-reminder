@@ -1,6 +1,14 @@
 :root {
     --clr-pink: #f28ab2;
-    --clr-white: white
+    --clr-white: white;
+    --clr-grey-5: hsl(210, 22%, 49%);
+    --clr-grey-9: hsl(209, 61%, 16%);
+    --spacing: 0.1rem;
+    --max-width: 1170px;
+    --fixed-width: 450px;
+    --radius: 0.25rem;
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
 }
 
 *, ::after, ::before {
@@ -12,27 +20,136 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.875rem;
     line-height: 1.5;
+    color: var(--clr-grey-9);
     background-color: var(--clr-pink);
-
 }
+
+h1, h2, h3, h4 {
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 0.875rem;
+}
+
+p {
+    color: var(--clr-grey-5);
+}
+
+@media screen and (min-width: 800px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+
+    h1, h2, h3, h4 {
+        line-height: 1;
+    }
+}
+
+/* global classes*/
+
+/* section */
+/*section {*/
+/*    width: 90vw;*/
+/*    max-width: var(--max-width);*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*@media screen and (min-width: 992px) {*/
+/*    .section {*/
+/*        width: 95vw;*/
+/*    }*/
+/*}*/
 
 main {
-    width: 80%;
-    height: 60%;
-    background-color: var(--clr-white);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-button {
-    width: 80%;
-    margin: 1rem;
+.container {
+    width: 90vw;
+    max-width: var(--fixed-width);
+    margin: 5rem 0;
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    background-color: var(--clr-white);
+    box-shadow: var(--dark-shadow);
+}
+
+.container h3 {
+    font-weight: normal;
+    margin-bottom: 2rem;
+    text-transform: none;
+}
+
+.person {
+    display: grid;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.75rem;
+}
+
+.person img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    box-shadow: var(--light-shadow);
+    object-fit: cover;
+}
+
+.person h4 {
+    margin-bottom: 0.35rem;
+}
+
+
+.container button {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
     padding: 1rem;
     cursor: pointer;
-    /*display: flex;*/
-    /*justify-content: center;*/
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
     color: var(--clr-white);
-    border: none;
-    /*text-align: center;*/
-    border-radius: 10px;
+    border-color: transparent;
+    border-radius: var(--radius);
+    outline: 1px solid rgba(242, 138, 178, 0.8);
     background-color: var(--clr-pink);
 }
